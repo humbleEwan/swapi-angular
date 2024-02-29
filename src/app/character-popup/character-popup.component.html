@@ -1,0 +1,43 @@
+<div class="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-40 flex items-center">
+	<app-loader *ngIf="!isVisible" class="opacity-100 z-70 m-auto"></app-loader>
+</div>
+
+<div [ngClass]="{'hidden' : !isVisible}" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-stone-500 p-6 shadow-2xl rounded-md w-[800px] h-[500px] z-50">
+	<div class="flex flex-row justify-between">
+		<div class="text-white font-mono text-4xl font-bold">
+			{{ data.name }}
+		</div>
+		<div (click)="closeDialog()" class="bg-red-500 rounded-md border-red-700 border-[1px] uppercase p-2 font-bold font-mono cursor-pointer hover:bg-red-600">
+			close
+		</div>
+	</div>
+
+	<div class="flex flex-row gap-4 justify-between py-5">
+		<div class="flex flex-col gap-2 text-white font-mono text-xl">
+			<div>
+				Mass: {{ data.mass }}kg
+			</div>
+			<div>
+				Height: {{ data.height }}cm
+			</div>
+			<div>
+				Year of birth: {{ data.birth_year }}
+			</div>
+			<div>
+				Number of movies: {{ data.films.length }}
+			</div>
+			<div class="text-2xl mt-2 font-bold">
+				Homeworld: {{ this.homeworld.name }}
+			</div>
+			<div>
+				Climate: {{ this.homeworld.climate }}
+			</div>
+			<div>
+				Terrain: {{ this.homeworld.terrain }}
+			</div>
+		</div>
+		<div>
+			<img class="rounded-t-sm" src="https://picsum.photos/400?random={{ rand }}" alt="Image">
+		</div>
+	</div>
+</div>
